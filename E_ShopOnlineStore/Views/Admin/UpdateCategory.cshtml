@@ -1,0 +1,39 @@
+﻿@model E_ShopOnlineStore.Models.CategoryDetail
+@{
+    ViewBag.Title = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Dashboard</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">Add New Category</li>
+            </ol>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Add New Category
+
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("UpdateCategory", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.HiddenFor(m => m.CategoryId)
+
+                        <div class="form-group">
+                            <label class="control-label">Category Name</label>
+                            @Html.TextBoxFor(m => m.CategoryName, new { @class = "form-control", placeholder = "Enter category Name", required = "required", autofocus = "autofocus" })
+                            @Html.ValidationMessageFor(m => m.CategoryName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <a onclick="window.history.back();" class="btn btn-danger">Cancel</a>
+                        <input type="submit" class="btn btn-primary" value="Save" />
+                    }
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
