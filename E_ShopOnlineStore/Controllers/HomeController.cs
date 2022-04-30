@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace E_ShopOnlineStore.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : Controller            /*Controller for the ecommerce page.*/
     {
         dbE_ShopOnlineStoreEntities ctx = new dbE_ShopOnlineStoreEntities();
         public ActionResult Index(string search,int? page)
